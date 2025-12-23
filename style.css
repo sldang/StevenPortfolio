@@ -15,7 +15,7 @@ html {
 }
 
 p {
-  color: rgb(85, 85, 85);
+  color: white;
 }
 
 /* TRANSITION */
@@ -188,4 +188,10 @@ section {
     justify-content: center;
     align-items: center;
     transform: translateY(-25vh); /* Negative value moves it up */
+}
+
+.section__text__p1 {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 1rem; /* Optional: adds space between paragraphs */
 }
