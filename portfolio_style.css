@@ -1,89 +1,115 @@
-       body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-        #portfolio {
-            padding: 80px 20px 80px;
-            max-width: 1200px;
-            margin: auto;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transform: translateY(-2vh);
-        }
+#portfolio {
+    padding: 80px 20px 80px;
+    max-width: 1200px;
+    margin: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-2vh);
+}
 
-        #portfolio h1 {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2.5rem;
-            color: white;
-        }
+#portfolio h1 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+    color: white;
+}
 
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 40px;
-        }
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
 
-        .portfolio-item {
-            border: 2px solid #333;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+.portfolio-item {
+    position: relative; /* ADDED */
+    border: 2px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .portfolio-item-image {
-            width: 100%;
-            height: 250px;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: #ccc;
-        }
+.portfolio-item-image {
+    width: 100%;
+    height: 250px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #ccc;
+}
 
-        .portfolio-item-content {
-            padding: 20px;
-        }
+.portfolio-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease; /* ADDED */
+}
 
-        .portfolio-item-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: white;
-        }
+.portfolio-item-content {
+    position: absolute; /* CHANGED from padding */
+    bottom: 0; /* ADDED */
+    left: 0; /* ADDED */
+    right: 0; /* ADDED */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.85); /* ADDED */
+    transform: translateY(100%); /* ADDED - hides content below */
+    transition: transform 0.3s ease; /* ADDED */
+}
 
-        .portfolio-item-description {
-            color: white;
-            line-height: 1.5;
-        }
+/* ADDED - shows content on hover */
+.portfolio-item:hover .portfolio-item-content {
+    transform: translateY(0);
+}
 
-        @media (max-width: 968px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+/* ADDED - zooms image slightly on hover */
+.portfolio-item:hover .portfolio-item-image img {
+    transform: scale(1.05);
+}
 
-        @media (max-width: 600px) {
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            #portfolio {
-                padding: 60px 20px 60px;
-            }
-        }
+.portfolio-item-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.portfolio-item-description {
+    color: white;
+    line-height: 1.5;
+}
+
+@media (max-width: 968px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #portfolio {
+        padding: 60px 20px 60px;
+    }
+}
